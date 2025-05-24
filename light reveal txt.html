@@ -50,13 +50,20 @@
 
     <script src="light.js"></script>
     <script>
-      // JavaScript để xử lý autoplay trong trường hợp bị chặn
-      document.addEventListener("DOMContentLoaded", function() {
-        var music = document.getElementById("background-music");
-        music.play().catch(function(error) {
-          console.log("Autoplay bị chặn: ", error);
-        });
-      });
-    </script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("background-music");
+
+    music.play().catch(function (error) {
+      console.log("Autoplay bị chặn, đợi tương tác...");
+    });
+
+    document.body.addEventListener("click", function () {
+      if (music.paused) {
+        music.play().catch(err => console.log("Vẫn không thể phát:", err));
+      }
+    }, { once: true });
+  });
+</script>
+
   </body>
 </html>
