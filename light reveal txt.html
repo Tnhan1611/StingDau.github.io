@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="light reveal txt.css" />
-    <title>Happy birthday 🎂 </title>
+    <title>Happy birthday 🎂</title>
   </head>
   <body>
-  
-
+    <!-- Thẻ audio tự động phát -->
+    <audio id="background-music" autoplay loop>
+      <source src="music/happy-birthday.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
 
     <div class="switch-container">
       <span class="switch-label">On / Off</span>
@@ -18,37 +21,42 @@
       </label>
     </div>
 
-      <div>
-        <div class="starsec"></div>
-        <div class="starthird"></div>
-        <div class="starfourth"></div>
-        <div class="starfifth"></div>
+    <div>
+      <div class="starsec"></div>
+      <div class="starthird"></div>
+      <div class="starfourth"></div>
+      <div class="starfifth"></div>
+    </div>
+
+    <div class="lamp__wrap">
+      <div class="lamp off">
+        <div class="cable"></div>
+        <div class="cover"></div>
+        <div class="in-cover">
+          <div class="bulb"></div>
+        </div>
+        <div class="light"></div>
       </div>
+    </div>
 
-
-      <div class="lamp__wrap">
-        <div class="lamp off">
-          <div class="cable"></div>
-          <div class="cover"></div>
-          <div class="in-cover">
-            <div class="bulb"></div>
-          </div>
-          <div class="light"></div>
+    <section class="error">
+      <div class="error__content">
+        <div class="error__message message">
+          <h1 class="message__title">Sinh Nhật Vui Vẻ Nhé 🎉</h1>
+          <p class="message__text">Happy new year ´꒳`</p>
         </div>
       </div>
-  
+    </section>
 
-      <section class="error">
-        <div class="error__content">
-          <div class="error__message message">
-            <h1 class="message__title">Sinh Nhật Vui Vẻ Nhé  🎉</h1>
-            <p class="message__text">Happy new year ´꒳` </p>
-          </div>
-        </div>
-      </section>
-
-
-      <script src="light.js"></script>
-    
+    <script src="light.js"></script>
+    <script>
+      // JavaScript để xử lý autoplay trong trường hợp bị chặn
+      document.addEventListener("DOMContentLoaded", function() {
+        var music = document.getElementById("background-music");
+        music.play().catch(function(error) {
+          console.log("Autoplay bị chặn: ", error);
+        });
+      });
+    </script>
   </body>
 </html>
